@@ -1,14 +1,21 @@
 class Musica:
-    nome = ''
-    artista = ''
-    duracao = int
+    musicas = []
 
-musica_mpb = Musica ()
-musica_mpb.nome = 'Dom Quixote'
-musica_mpb.artista = 'Humberto Guessinger'
-musica_mpb.duracao = 330
+    def __init__(self, nome='', artista='', duracao=0):
+        self.nome = nome
+        self.artista = artista
+        self.duracao = duracao
+        Musica.musicas.append(self)
+    
+    def __str__(self):
+        return f'{self.nome} | {self.artista}'
+    
+    def listar_musicas():
+        for musica in Musica.musicas:
+            print(f'{musica_mpb} | {musica_rock}')
 
-musica_rock = Musica ()
-musica_rock.nome = 'System of a down'
-musica_rock.artista = 'Serj Tankian'
-musica_rock.duracao = 430
+
+musica_mpb = Musica (nome='Dom Quixote', artista='Humberto Guessinger', duracao=300)
+musica_rock = Musica (nome='Chop Suey!', artista='System of a down', duracao=430)
+
+Musica.listar_musicas()
